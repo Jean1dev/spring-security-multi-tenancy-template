@@ -1,0 +1,34 @@
+server:
+  port: 8090
+
+spring:
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+
+  flyway:
+    clean-disabled: false
+    clean-on-validation-error: false
+    locations: classpath:db/migration
+    table: schema_history
+
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: none
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  datasource:
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 3
+
+    platform: postgres
+    url: jdbc:postgresql://localhost:5432/templatesecurity
+    username: jeanfernades
+    password: admin
+    driverClassName: org.postgresql.Driver
+
+jwt:
+  expiration: 36000
+  secret: weoghwoiwhegqewguewhguewhguwheguhw
