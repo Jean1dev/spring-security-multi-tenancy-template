@@ -30,6 +30,6 @@ public class AutenticacaoApi {
         Authentication authentication = manager.authenticate(auth);
         String token = tokenService.gerarToken(authentication);
 
-        return new TokenDto(token, auth.getPrincipal());
+        return new TokenDto(token, authentication.getPrincipal());
     }
 }

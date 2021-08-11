@@ -1,0 +1,1 @@
+ALTER TABLE public.usuario_acesso ADD COLUMN conta_confirmada bool NOT NULL DEFAULT false;

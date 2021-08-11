@@ -11,6 +11,9 @@ import javax.validation.constraints.NotEmpty;
 @NoArgsConstructor
 public class CriarUsuarioDto {
 
+    @NotEmpty(message = "email é obrigatorio")
+    private String email;
+
     @NotEmpty(message = "login é obrigatorio")
     private String login;
 
