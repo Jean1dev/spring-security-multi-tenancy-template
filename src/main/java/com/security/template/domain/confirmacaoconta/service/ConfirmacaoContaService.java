@@ -22,14 +22,19 @@ public class ConfirmacaoContaService {
     }
 
     public Integer gerarCodigo(UsuarioAcesso usuarioAcesso) {
-        int codigoAleatorio = new Random().nextInt();
+        int codigoAleatorio = novoInteiro();
 
         while (verificarSeOCodigoJaEstaNaLista(codigoAleatorio)) {
-            codigoAleatorio = new Random().nextInt();
+            codigoAleatorio = novoInteiro();
         }
 
         listaCodigos.put(codigoAleatorio, usuarioAcesso);
+        System.out.println("Codigo gerado " + codigoAleatorio);
         return codigoAleatorio;
+    }
+
+    private int novoInteiro() {
+        return new Random().nextInt(10000);
     }
 
     private boolean verificarSeOCodigoJaEstaNaLista(int codigoAleatorio) {
