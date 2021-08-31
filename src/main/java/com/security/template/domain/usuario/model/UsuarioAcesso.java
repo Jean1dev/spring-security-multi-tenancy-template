@@ -28,6 +28,8 @@ public class UsuarioAcesso {
     @NotEmpty(message = "senha é obrigatorio")
     private String password;
 
+    private Boolean contaConfirmada = false;
+
     @JsonIgnore
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "tenant", referencedColumnName = "id")
