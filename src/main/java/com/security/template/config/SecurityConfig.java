@@ -4,7 +4,7 @@ import com.security.template.auth.AutenticacaoService;
 import com.security.template.auth.AutenticacaoViaTokenFilter;
 import com.security.template.auth.TokenService;
 import com.security.template.auth.UsuarioAutenticaService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -20,16 +20,14 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 @EnableWebSecurity
 @Configuration
+@RequiredArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    private TokenService tokenService;
+    private final TokenService tokenService;
 
-    @Autowired
-    private UsuarioAutenticaService usuarioAutenticaService;
+    private final UsuarioAutenticaService usuarioAutenticaService;
 
-    @Autowired
-    private AutenticacaoService autenticacaoService;
+    private final AutenticacaoService autenticacaoService;
 
     @Override
     @Bean
